@@ -1,9 +1,16 @@
 from fastapi import FastAPI
 from .db import engine, Base
+from .routes import vehicles, diagnostics, maintenance
 
 app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
+
+app.include_router(vehicles.router, prefix="/api", tags=["Vehicles"])
+app.include_router(diagnostics.router, prefix="/api", tags=["Diagnostics"])
+app.include_router(maintenance.router, prefix="/api", tags=["Maintenance"])
+
+
 
 
 @app.get('/')

@@ -16,7 +16,7 @@ class Vehicle(Base):
     maintenance = relationship("Maintenance", back_populates='vehicle')
 
 
-class Diagnostics(Base):
+class Diagnostic(Base):
     __tablename__ = 'diagnostics'
 
     id = Column(Integer, primary_key=True, index=True)

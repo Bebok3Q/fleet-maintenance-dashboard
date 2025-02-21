@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = "postgresql://fleet_user:securepassword@localhost/fleet_db"
+DATABASE_URL = "postgresql://postgres:Tygrys3k@localhost/fleet_db"
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -13,5 +13,5 @@ def get_db():
         yield db
     finally:
         db.close()
-    print("ALL DONE")
-get_db()
+
+
